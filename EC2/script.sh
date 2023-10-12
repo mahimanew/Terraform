@@ -6,4 +6,5 @@ sudo cd /var/www/html
 sudo mkdir web
 sudo cd web
 sudo touch index.html
-echo "Deploy a web server on aws" | sudo tee /var/www/html/web/index.html
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+echo "Server Instance ID: $INSTANCE_ID" | sudo tee /var/www/html/web/index.html
